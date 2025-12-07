@@ -20,19 +20,23 @@ namespace EjercicioTelegrama
         private void button1_Click(object sender, EventArgs e)
         {
             string textoTelegrama;
-            char tipoTelegrama = ' ';
+            char tipoTelegrama = 'o'; //inicializado a o para que por defecto sea ordinario
             int numPalabras = 0;
             double coste;
 
             //Leo el telegrama
             textoTelegrama = txtTelegrama.Text;
+           
             // telegrama urgente?
             if (chkUrgente.Checked)
             {
                 tipoTelegrama = 'u';
             }
+            
             //Obtengo el número de palabras que forma el telegrama
-            numPalabras = textoTelegrama.Length;
+           //correccion lenght contaba caracteres. Usamos split para contar palabras
+            numPalabras = textoTelegrama.Split('o').Length;
+           
             //Si el telegrama es ordinario
             if (tipoTelegrama == 'o')
             {
@@ -42,7 +46,8 @@ namespace EjercicioTelegrama
                 }
                 else
                 {
-                    coste = 0.5 * numPalabras;
+                   //correccion:la formula correcta es base + 0.5 por cada palabra EXTRA
+                    coste = 2.5 + 0.5 * (numPalabras - 10);
                 }
             }
             else
@@ -65,6 +70,7 @@ namespace EjercicioTelegrama
                 }
             }
             txtPrecio.Text = coste.ToString() + " euros";
+
         }
     }
 }
