@@ -42,16 +42,18 @@ namespace EjercicioTelegrama
                 numPalabras = textoTelegrama.Split('o').Length;
            
             //Si el telegrama es ordinario
+            //cambio de precios de 2.5 a 3
             if (tipoTelegrama == 'o')
             {
                 if (numPalabras <= 10)
                 {
-                    coste = 2.5;
+                    coste = 3;
                 }
                 else
                 {
                    //correccion:la formula correcta es base + 0.5 por cada palabra EXTRA
-                    coste = 2.5 + 0.5 * (numPalabras - 10);
+                   //cambio de precio de 2.5 a 3
+                    coste = 3 + 0.5 * (numPalabras - 10);
                 }
             }
             else
@@ -61,11 +63,13 @@ namespace EjercicioTelegrama
                 {
                     if (numPalabras <= 10)
                     {
-                        coste = 5;
+                        //cambio de precio de 5 a 6
+                        coste = 6;
                     }
                     else
                     {
-                        coste = 5 + 0.75 * (numPalabras - 10);
+                        //cambio de precio de 5 a 6
+                        coste = 6 + 0.75 * (numPalabras - 10);
                     }
                 }
                 else
